@@ -7,7 +7,7 @@ import time
 import os
 st.write("🔍 Klasör Kontrolü Başladı...")
 try:
-    path = "/runpod-volume/ComfyUI/custom_nodes"
+    path = "/runpod-slim/ComfyUI/custom_nodes"
     if os.path.exists(path):
         st.success(f"Düğüm klasörü bulundu! İçindekiler: {os.listdir(path)}")
     else:
