@@ -3,6 +3,19 @@ import requests
 import json
 import time
 
+# --- GEÇİCİ DEDEKTİF KODU ---
+import os
+st.write("🔍 Klasör Kontrolü Başladı...")
+try:
+    path = "/runpod-volume/ComfyUI/custom_nodes"
+    if os.path.exists(path):
+        st.success(f"Düğüm klasörü bulundu! İçindekiler: {os.listdir(path)}")
+    else:
+        st.error(f"HATA: {path} yolu bulunamadı! Mevcut /runpod-volume içeriği: {os.listdir('/runpod-volume')}")
+except Exception as e:
+    st.write(f"Sistem taraması yapılamadı: {e}")
+# ----------------------------
+
 
 # --- GÜVENLİK VE AYARLAR ---
 try:
