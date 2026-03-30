@@ -54,7 +54,12 @@ if st.button("Görseli Oluştur ✨"):
                 # 2. İşi Başlat (/run kullanıyoruz, /runsync değil)
                 run_url = f"https://api.runpod.ai/v2/{ENDPOINT_ID}/run"
                 headers = {"Authorization": f"Bearer {RUNPOD_API_KEY}", "Content-Type": "application/json"}
-                payload = {"input": {"workflow": workflow}}
+                payload = {
+    "input": {
+        "workflow": workflow,
+        "check_paths": "ls -R /runpod-volume/ComfyUI/custom_nodes/ComfyUI-Impact-Pack"
+    }
+}
 
                 run_response = requests.post(run_url, json=payload, headers=headers)
                 job_data = run_response.json()
