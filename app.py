@@ -1,3 +1,38 @@
+import streamlit as st
+import requests
+import json
+import time
+
+# --- GÜVENLİK VE AYARLAR ---
+try:
+    RUNPOD_API_KEY = st.secrets["RUNPOD_API_KEY"]
+    ENDPOINT_ID = st.secrets["ENDPOINT_ID"]
+    ACCESS_PASSWORD = st.secrets["ACCESS_PASSWORD"]
+except:
+    st.error("Lütfen Streamlit Cloud panelinden 'Secrets' ayarlarını yapın!")
+    st.stop()
+
+st.set_page_config(page_title="Selin AI Control", page_icon="💃")
+
+# --- GİRİŞ KONTROLÜ ---
+if "authenticated" not in st.session_state:
+    st.session_state["authenticated"] = False
+
+if not st.session_state["authenticated"]:
+    st.title("🔒 Selin AI Erişim")
+    pwd = st.text_input("Giriş Şifresi:", type="password")
+    if st.button("Giriş Yap"):
+        if pwd == ACCESS_PASSWORD:
+            st.session_state["authenticated"] = True
+            st.rerun()
+        else:
+            st.error("Hatalı şifre!")
+    st.stop()
+
+# --- ANA PANEL ---
+st.title("💃 Selin AI Kontrol Paneli")
+user_prompt = st.text_area("Selin ne yapsın?", placeholder="Örn: Selin_woman walking in a flower garden, smiling...")
+
 # ... (önceki kodlar aynı)
 
 if st.button("Görseli Oluştur ✨"):
