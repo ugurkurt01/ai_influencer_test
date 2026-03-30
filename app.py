@@ -3,13 +3,6 @@ import requests
 import json
 import time
 
-# Bu komutu payload kısmına ekleyerek worker'ın ne gördüğünü loglayabiliriz
-payload = {
-    "input": {
-        "workflow": workflow,
-        "check_paths": "ls -R /runpod-volume/ComfyUI/custom_nodes/ComfyUI-Impact-Pack"
-    }
-}
 
 # --- GÜVENLİK VE AYARLAR ---
 try:
