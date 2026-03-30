@@ -11,7 +11,7 @@ try:
     if os.path.exists(path):
         st.success(f"Düğüm klasörü bulundu! İçindekiler: {os.listdir(path)}")
     else:
-        st.error(f"HATA: {path} yolu bulunamadı! Mevcut /runpod-volume içeriği: {os.listdir('/runpod-volume')}")
+        st.error(f"HATA: {path} yolu bulunamadı! Mevcut /runpod-slim içeriği: {os.listdir('/runpod-slim')}")
 except Exception as e:
     st.write(f"Sistem taraması yapılamadı: {e}")
 # ----------------------------
